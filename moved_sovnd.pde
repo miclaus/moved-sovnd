@@ -65,10 +65,10 @@ final int min_freq = 70, max_freq = 1000;
 final String POST_ID = "1054796524547380";
 //final String POST_ID = "1054021867958179";
 
+final boolean takeSnapshots = false;
 // adapt this for your shapshots destination folder
-final String savePath = "/Users/meezwhite/Desktop/moved_sovnd_fhstpdays15/";
+final String savePath = "/path/to/snapshots/directory";
 final String saveFormat = ".jpg"; // support by processing
-final boolean takeSnapshots = true;
 
 
 
