@@ -65,6 +65,11 @@ final int min_freq = 70, max_freq = 1000;
 final String POST_ID = "1054796524547380";
 //final String POST_ID = "1054021867958179";
 
+// adapt this for your shapshots destination folder
+final String savePath = "/Users/meezwhite/Desktop/moved_sovnd_fhstpdays15/";
+final String saveFormat = ".jpg"; // support by processing
+final boolean takeSnapshots = true;
+
 
 
 void setup() 
@@ -313,6 +318,22 @@ void draw()
     fill(252,250,96);
     //fill(71, 251, 124);
     text(lastMessage, width/2, height/2, 300, 200);
+    
+    
+    // take snapshots
+    if ( takeSnapshots ) 
+    {
+      PImage frameImg = new PImage(width, height);
+      loadPixels();
+      frameImg.pixels = pixels;
+      frameImg.updatePixels();
+      
+      String frameName = millis() + "_" + frameCount + "_" + floor(random(1, 1024));
+      frameImg.save(savePath + frameName + saveFormat);
+      
+      frameName += "_rgb";
+      prevFrame.save(savePath + frameName + saveFormat);
+    }
   }
   else 
   {
