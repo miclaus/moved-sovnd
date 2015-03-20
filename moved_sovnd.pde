@@ -62,6 +62,7 @@ final int maxDist = minDist + 1000;
 final int waveMod = 50;
 final int min_freq = 70, max_freq = 1000;
 // GL◉W
+final boolean requestOnlinePosts = false;
 final String POST_ID = "1054796524547380";
 //final String POST_ID = "1054021867958179";
 
@@ -295,20 +296,23 @@ void draw()
   
   
   /// SOCIAL
-  long nextRefresh = lastRefresh + refreshInterval + refreshThresh;
-  
-  if ( millis() > nextRefresh ) 
+  if ( requestOnlinePosts ) 
   {
-    try {
-      client = new HttpClient(this, "graph.facebook.com");
-      client.GET("/" + POST_ID + "/comments?fields=message,created_time");
-    }
-    catch (Exception x) {
-      println("x");
-    }
+    long nextRefresh = lastRefresh + refreshInterval + refreshThresh;
     
-    lastRefresh = millis();
-    showUntil = lastRefresh + refreshThresh;
+    if ( millis() > nextRefresh ) 
+    {
+      try {
+        client = new HttpClient(this, "graph.facebook.com");
+        client.GET("/" + POST_ID + "/comments?fields=message,created_time");
+      }
+      catch (Exception x) {
+        println("x");
+      }
+      
+      lastRefresh = millis();
+      showUntil = lastRefresh + refreshThresh;
+    }
   }
   
   
