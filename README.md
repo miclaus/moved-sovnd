@@ -4,7 +4,7 @@ Interactive experimental installation generating "semi-binaural-beats" using the
 ### Background Clip
 The current clip file is just a sample. 
 
-Replace **/data/the-clip.mp4** with your own clip.
+Replace *data/the-clip.mp4* with your own clip.
 
 ### Snapshots
 If you want to take snapshots, change the constant:
