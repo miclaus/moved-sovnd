@@ -149,9 +149,9 @@ void draw()
   kinectDepthImage.height = 480;
   
   kinectDepthImage.loadPixels();
-  for (int y = 0; y < 480; y++) 
+  for ( int y = 0; y < 480; y++ )
   {
-    for (int x = 0; x < 640; x++) 
+    for ( int x = 0; x < 640; x++ ) 
     {
       int i = x + (y * 640);
       int currentDepthValue = depthValues[i];
@@ -208,7 +208,7 @@ void draw()
   image(kinectDepthImage, centerX, centerY);
 
   
-  // check if his is more performant
+  // check if this is more performant
   //int m = millis();
   //if ( m - frameTimer > 50 )
   //{
@@ -274,7 +274,7 @@ void draw()
   stroke(71,251,124, 8);
   strokeWeight(28);
   
-  for (int i = 0; i < out.bufferSize() - 1; i++)
+  for ( int i = 0; i < out.bufferSize() - 1; i++ )
   {
     //float x1 = map(i, 0, out.bufferSize(), 0, width);
     //float x2 = map(i+1, 0, out.bufferSize(), 0, width);
@@ -302,7 +302,8 @@ void draw()
     
     if ( millis() > nextRefresh ) 
     {
-      try {
+      try 
+      {
         client = new HttpClient(this, "graph.facebook.com");
         client.GET("/" + POST_ID + "/comments?fields=message,created_time");
       }
@@ -352,7 +353,7 @@ void responseReceived (HttpRequest request, HttpResponse response)
   if ( response.statusCode == 200 ) 
   {
     JSONResult = response.getContentAsJSONObject();
-    println(JSONResult);
+    //println(JSONResult);
     
     com.francisli.processing.http.JSONObject lastMsgObj = JSONResult.get("data");
     
@@ -370,6 +371,7 @@ void responseReceived (HttpRequest request, HttpResponse response)
         
         int maxLength = ( lastCommentMessage.length() < MAX_CHAR ) 
                             ? lastCommentMessage.length() : MAX_CHAR;
+                            
         lastCommentMessage = lastCommentMessage.substring(0, maxLength);
         
         lastMessage = lastCommentMessage.toUpperCase();
@@ -383,7 +385,7 @@ void responseReceived (HttpRequest request, HttpResponse response)
   }
   else 
   {
-    println(response.getContentAsString());
+    //println(response.getContentAsString());
   }
 }
 
