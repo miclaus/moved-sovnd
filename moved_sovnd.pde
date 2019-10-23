@@ -1,5 +1,5 @@
 /**
- * moved-sovnd aka. "that berry was a flower once."
+ * moved-sovnd aka. "that berry was a flower once"
  *
  * ideas and help from:
  * http://www.openprocessing.org/sketch/16770
