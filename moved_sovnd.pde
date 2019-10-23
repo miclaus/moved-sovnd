@@ -1,9 +1,6 @@
 /**
  * moved-sovnd aka. "that berry was a flower once."
  *
- * @author - iosif miclaus (iosif dot miclaus at gmail dot com)
- * @www - iosif.miclaus.net/#moved-sovnd
- *
  * ideas and help from:
  * http://www.openprocessing.org/sketch/16770
  * http://stackoverflow.com/a/7227057/2035807
